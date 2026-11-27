@@ -29,7 +29,9 @@ python3 -m http.server 8000
 2. On GitHub: **Settings → Pages → Build and deployment**, set Source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
 3. The site appears at https://axonarcade.com after a minute or so.
 
-`.nojekyll` tells Pages to serve the files as they are, without running Jekyll. `CNAME` holds the custom domain; keep it, or GitHub drops the domain on the next deploy.
+`.nojekyll` tells Pages to serve the files as they are, without running Jekyll.
+
+`app-ads.txt` authorises Google AdMob to sell ads in our apps. AdMob reads it from https://axonarcade.com/app-ads.txt, the root of the website set in each app's Play Store listing, so it must stay at the site root. `CNAME` holds the custom domain; keep it, or GitHub drops the domain on the next deploy.
 
 ### Custom domain (axonarcade.com)
 
@@ -63,6 +65,14 @@ Links between pages are relative, so they work at any address. Three things use 
 2. Put its images in `assets/img/<game>/`. Screenshots are 540×960 WebP; 1080×1920 game captures can be converted with Pillow or `cwebp -resize 540 960`.
 3. Add a `game-card` for it in the Games section of `index.html`, and remove the "More games on the way" box if it no longer fits.
 4. Add it to the footer links.
+
+## Google Play developer page
+
+`store/play-developer-header.png` (and `.jpg`) is the header image for the Play developer page: 4096 × 2304, no transparency, as Play requires. The logo and text stay in the middle so cropping only cuts decoration. To redraw it after a brand change:
+
+```sh
+python3 tools/make_play_header.py   # needs Pillow and numpy
+```
 
 ## Swipe Mania assets
 
