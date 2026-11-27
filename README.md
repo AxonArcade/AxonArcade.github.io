@@ -2,7 +2,7 @@
 
 The Axon Arcade website: a plain static site (HTML + CSS, no build step) served by GitHub Pages.
 
-Live at **https://axonarcade.github.io**. GitHub serves this address because the repo is named `AxonArcade.github.io`.
+Live at **https://axonarcade.com**. The repo is named `AxonArcade.github.io`, so GitHub also serves it at https://axonarcade.github.io, which redirects to the custom domain set in `CNAME`.
 
 ## Pages
 
@@ -27,9 +27,28 @@ python3 -m http.server 8000
 
 1. Push to `main`.
 2. On GitHub: **Settings → Pages → Build and deployment**, set Source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. The site appears at https://axonarcade.github.io after a minute or so.
+3. The site appears at https://axonarcade.com after a minute or so.
 
-`.nojekyll` tells Pages to serve the files as they are, without running Jekyll.
+`.nojekyll` tells Pages to serve the files as they are, without running Jekyll. `CNAME` holds the custom domain; keep it, or GitHub drops the domain on the next deploy.
+
+### Custom domain (axonarcade.com)
+
+DNS is on Cloudflare. The records, all set to **DNS only** (grey cloud):
+
+| Type | Name | Content |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153` |
+| AAAA | `@` | `2606:50c0:8001::153` |
+| AAAA | `@` | `2606:50c0:8002::153` |
+| AAAA | `@` | `2606:50c0:8003::153` |
+| CNAME | `www` | `axonarcade.github.io` |
+| TXT | `_github-pages-challenge-AxonArcade` | the code GitHub gives when verifying the domain |
+
+The domain is verified in the AxonArcade organisation settings (Pages → Verified domains), so no other GitHub account can claim it. Settings → Pages has **Enforce HTTPS** on.
 
 ### If the address changes
 
