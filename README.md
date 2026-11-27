@@ -1,8 +1,8 @@
-# AxonArcadeWeb
+# axonarcade.github.io
 
 The Axon Arcade website: a plain static site (HTML + CSS, no build step) served by GitHub Pages.
 
-Live at **https://axonarcade.github.io/AxonArcadeWeb/** once Pages is turned on.
+Live at **https://axonarcade.github.io**. GitHub serves this address because the repo is named `AxonArcade.github.io`.
 
 ## Pages
 
@@ -27,15 +27,15 @@ python3 -m http.server 8000
 
 1. Push to `main`.
 2. On GitHub: **Settings → Pages → Build and deployment**, set Source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. The site appears at https://axonarcade.github.io/AxonArcadeWeb/ after a minute or so.
+3. The site appears at https://axonarcade.github.io after a minute or so.
 
 `.nojekyll` tells Pages to serve the files as they are, without running Jekyll.
 
 ### If the address changes
 
-Links between pages are relative, so they work at any address. Three things use the full address and need updating if the site moves (for example to `axonarcade.github.io` by renaming the repo to `AxonArcade.github.io`, or to a custom domain):
+Links between pages are relative, so they work at any address. Three things use the full address and need updating if the site moves (for example to a custom domain, or under a sub-path):
 
-- `<base href="/AxonArcadeWeb/">` in `404.html`: change it to the new path (`/` for a root domain).
+- `<base href="/">` in `404.html`: set it to the site's path (it stays `/` on any root domain).
 - The `og:image` URLs in `index.html` and `swipe-mania/index.html` (the picture shown when a link is shared).
 
 ## Adding a game
