@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Swipe Mania app icon: a card flung to the right, trailing colour streaks.
+       Full-bleed square (no transparency) so iOS and Android can apply their own masks.
+       The card, streak heads and sparkles stay inside the middle two-thirds,
+       which is what Android's adaptive icons show. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c1257"/>
+      <stop offset="0.55" stop-color="#6b3cff"/>
+      <stop offset="1" stop-color="#ff4f9a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="600" cy="490" r="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="s1" x1="150" y1="0" x2="470" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd60a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffd60a"/>
+    </linearGradient>
+    <linearGradient id="s2" x1="110" y1="0" x2="470" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff8a1f" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ff8a1f"/>
+    </linearGradient>
+    <linearGradient id="s3" x1="150" y1="0" x2="470" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34c759" stop-opacity="0"/>
+      <stop offset="1" stop-color="#34c759"/>
+    </linearGradient>
+    <linearGradient id="s4" x1="230" y1="0" x2="490" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3dd5ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3dd5ff"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="-110" y1="0" x2="110" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#ff4f9a"/>
+    </linearGradient>
+    <path id="sparkle" d="M 0 -52 C 8 -8 8 -8 52 0 C 8 8 8 8 0 52 C -8 8 -8 8 -52 0 C -8 -8 -8 -8 0 -52 Z"/>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <g transform="translate(512 512) scale(0.9) translate(-512 -512)">
+  <!-- Motion streaks: the card's path, fading out behind it. -->
+  <g fill="none" stroke-linecap="round" stroke-width="48">
+    <path d="M 150 410 Q 310 320 470 330" stroke="url(#s1)"/>
+    <path d="M 110 540 Q 290 450 470 455" stroke="url(#s2)"/>
+    <path d="M 150 670 Q 320 585 470 585" stroke="url(#s3)"/>
+    <path d="M 230 790 Q 370 715 490 710" stroke="url(#s4)"/>
+  </g>
+
+  <!-- Ghosts of the card a moment ago. -->
+  <g fill="#ffffff">
+    <rect transform="translate(455 525) rotate(3)" x="-180" y="-240" width="360" height="480" rx="56" fill-opacity="0.10"/>
+    <rect transform="translate(515 512) rotate(8)" x="-180" y="-240" width="360" height="480" rx="56" fill-opacity="0.18"/>
+  </g>
+
+  <!-- The card, tilted mid-swipe, with a soft glow and shadow. -->
+  <g transform="translate(585 500) rotate(15)">
+    <rect x="-212" y="-272" width="424" height="544" rx="88" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="-196" y="-256" width="392" height="512" rx="72" fill="#ffffff" fill-opacity="0.10"/>
+    <rect x="-164" y="-218" width="360" height="480" rx="56" fill="#12093d" fill-opacity="0.35"/>
+    <rect x="-180" y="-240" width="360" height="480" rx="56" fill="#ffffff"/>
+    <!-- Arrow counter-rotated so it points the way the card is going. -->
+    <path transform="rotate(-20)" d="M -100 0 H 88 M 16 -76 L 94 0 L 16 76" fill="none" stroke="url(#arrow)"
+          stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Sparkles. -->
+  <use href="#sparkle" transform="translate(790 275)" fill="#ffffff"/>
+  <use href="#sparkle" transform="translate(705 175) scale(0.5)" fill="#ffffff"/>
+  <use href="#sparkle" transform="translate(790 770) scale(0.62)" fill="#ffd60a"/>
+  <use href="#sparkle" transform="translate(275 265) scale(0.4)" fill="#ffffff" fill-opacity="0.8"/>
+  </g>
+</svg>
